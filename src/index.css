@@ -9,15 +9,23 @@ body {
   min-height: 100%;
   padding-bottom: 5rem;
 }
-h1, h2  {
+h1  {
   color: white;
   padding: 2rem 0;
   text-align: center;
-
   text-transform: uppercase;
-
   font-family: 'Ubuntu', sans-serif;
   letter-spacing: 1px;
+}
+
+ h2  {
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 1px;
+  font-size: 20px;
 }
 .lista-citas .media {
   border-bottom: 1px solid #e1e1e1;
