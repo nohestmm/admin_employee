@@ -10,7 +10,7 @@ const App = () => {
 <div className="one-half column">
 <Formulario />
 </div>
-<div className="one-half column">2</div>
+<div className="one-half column">Listado de Empleados</div>
 </div>
 </div>
     </>
