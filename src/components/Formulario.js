@@ -126,8 +126,6 @@ guardarEmpleados(empleado);
           name="hora"
           className="u-full-width"
           placeholder=""
-          min="09:00"
-          max="16:00"
           onChange={changeState}
           value={hora}
         ></input>
