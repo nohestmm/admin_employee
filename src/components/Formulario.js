@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import uuid from '../../node_modules/uuid/dist/index'
+import { uuid } from 'uuidv4'
 
-const Formulario = () => {
-  //Hooks
+const Formulario = ({guardarEmpleados}) => {
+
   const [empleado, guardarEmpleado] = useState({
     nombre: "",
     apellido: "",
@@ -34,10 +34,10 @@ const Formulario = () => {
     funciones,
   } = empleado;
 
-  //Crear ficha de empleado
+  //Crear ficha de empleado evento onSubmit
   const submitEmpleado = (event) => {
     event.preventDefault();
-    //Validacion
+    //Validacion de campos vacios
     if (
       nombre.trim() === "" ||
       apellido.trim() === "" ||
@@ -54,9 +54,9 @@ const Formulario = () => {
     actualizarError(false);
 
     //Asignar ID
-    empleado.id= uuid;
+    empleado.id = uuid();
     //Crear la ficha
-
+guardarEmpleados(empleado);
     //resetear el formulario
     guardarEmpleado({
         nombre: "",
