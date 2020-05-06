@@ -1,8 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
 import Lista from "./components/Lista";
 const App = () => {
-  const [empleados, listaEmpleados] = useState([]);
+//empleados en localstorage
+let empleadosInicio = JSON.parse(localStorage.getItem('empleados'));
+if (!empleadosInicio){
+  empleadosInicio = [];
+}
+
+  //Arreglo de empleados
+  const [empleados, listaEmpleados] = useState(empleadosInicio);
+  //useEffect
+  useEffect(() => {
+if (empleadosInicio)
+  localStorage.setItem('empleados', JSON.stringify(empleados))
+  else 
+  localStorage.setItem('empleados', JSON.stringify([]))
+
+  }, [empleados])
   //crear listado
   const guardarEmpleados = (empleado) => {
     listaEmpleados([...empleados, empleado]);
@@ -15,7 +30,7 @@ const App = () => {
   //condicional listado
   const tituloListado = empleados.length
     ? "Lista de empleados"
-    : "No existen registros";
+    : "No existen empleados";
   return (
     <>
       <h1>Administrador de Empleados</h1>
