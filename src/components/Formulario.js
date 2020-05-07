@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { uuid } from 'uuidv4'
-
+import PropTypes from 'prop-types';
 const Formulario = ({guardarEmpleados}) => {
 
   const [empleado, guardarEmpleado] = useState({
@@ -145,5 +145,7 @@ guardarEmpleados(empleado);
     </>
   );
 };
-
+Formulario.propTypes = {
+    guardarEmpleados: PropTypes.func.isRequired
+}
 export default Formulario;

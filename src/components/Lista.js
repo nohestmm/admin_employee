@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 const Lista = ({empleado, eliminarEmpleado}) => (
 <div className="listado">
 <p>Nombre: <span>{empleado.nombre}</span></p>
@@ -14,6 +15,9 @@ onClick={()=> eliminarEmpleado(empleado.id)}
 >Eliminar &times;</button>
     </div>
     )
-
+    Lista.propTypes = {
+        empleado: PropTypes.object.isRequired,
+        eliminarEmpleado: PropTypes.func.isRequired
+    }
  
 export default Lista;

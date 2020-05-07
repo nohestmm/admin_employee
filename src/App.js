@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
 import Lista from "./components/Lista";
+
 const App = () => {
 //empleados en localstorage
 let empleadosInicio = JSON.parse(localStorage.getItem('empleados'));
@@ -12,6 +13,7 @@ if (!empleadosInicio){
   const [empleados, listaEmpleados] = useState(empleadosInicio);
   //useEffect
   useEffect(() => {
+    let empleadosInicio = JSON.parse(localStorage.getItem('empleados'));
 if (empleadosInicio)
   localStorage.setItem('empleados', JSON.stringify(empleados))
   else 
@@ -37,7 +39,9 @@ if (empleadosInicio)
       <div className="container">
         <div className="row">
           <div className="one-half column">
-            <Formulario guardarEmpleados={guardarEmpleados} />
+            <Formulario 
+            guardarEmpleados={guardarEmpleados} 
+            />
           </div>
           <div className="one-half column">
             <h2>{tituloListado}</h2>
